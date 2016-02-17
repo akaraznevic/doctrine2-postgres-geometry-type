@@ -71,7 +71,7 @@ class GeometryType extends Type
      */
     public function convertToDatabaseValueSQL($sqlExpr, AbstractPlatform $platform)
     {
-        return sprintf('transform(GeometryFromText(%s,4326),900913)', $sqlExpr);
+        return sprintf('st_transform(st_GeometryFromText(%s,4326),900913)', $sqlExpr);
     }
 
     /**
